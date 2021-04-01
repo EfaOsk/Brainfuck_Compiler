@@ -11,6 +11,7 @@ author:
 #include <iostream>
 #include <fstream>
 #include "lexer.h"
+#include "language.h"
 
 
 using namespace std;
@@ -29,8 +30,13 @@ int main(int argc, char* argv[]){
         cout << "Could not open input file '"<< filename << "'." << endl;
         return -1;
     }
-
     Lexer* lexer;
-    lexer = new Lexer(file)
+    lexer = new Lexer(file);
+    Token token;
+    lexer->get(token);
+    while (token != Token::t_eoi){
+        cout<<token<<endl;
+        lexer->get(token);
+    }
     return 0;
 }
