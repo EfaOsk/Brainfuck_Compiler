@@ -11,6 +11,7 @@ author:
 #include <iostream>
 #include <fstream>
 #include "lexer.h"
+#include "interpreter.h"
 #include "language.h"
 
 
@@ -34,9 +35,8 @@ int main(int argc, char* argv[]){
     lexer = new Lexer(file);
     Token token;
     lexer->get(token);
-    while (token != Token::t_eoi){
-        cout<<token<<endl;
-        lexer->get(token);
-    }
+    Interpreter* interp;
+    interp = new Interpreter(lexer);
+
     return 0;
 }
