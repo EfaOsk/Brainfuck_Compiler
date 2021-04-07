@@ -71,7 +71,21 @@ class ICG_C{
             stream<<"*ptr=getchar();"<<std::endl;
         };
         void handel_while(){
-            stream<<"while (*ptr) {"<<std::endl;
+            if (lexer->c_peek()=='-'){
+                Token token;
+                lexer->get(token);
+                if (lexer->c_peek()==']'){
+                    lexer->get(token);
+                    stream<<"*ptr=0;"<<std::endl;
+                } else {
+                    stream<<"while (*ptr) {"<<std::endl;
+                    handel_minus();
+                }
+
+            } else {
+                stream<<"while (*ptr) {"<<std::endl;
+            }
+            
         };
         void handel_end_while(){
             stream<<"}"<<std::endl;
