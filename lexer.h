@@ -19,6 +19,7 @@ class Lexer {
                 token = SymbolToToken.find(c)->second;
             }   
         }
+        char c_peek() { return (char) stream.peek(); }
 
     private:
         std::istream& stream;
