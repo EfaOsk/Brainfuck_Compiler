@@ -59,7 +59,7 @@ class ICG_C{
             stream<<"--*ptr;"<<std::endl;
         };
         void handel_shift_left(){
-            stream<<"--ptr;\n"<<std::endl;
+            stream<<"--ptr;"<<std::endl;
         };
         void handel_shift_right(){
             stream<<"++ptr;"<<std::endl;
