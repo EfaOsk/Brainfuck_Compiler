@@ -1,11 +1,11 @@
-#ifndef ICG_H
-#define ICG_H
+#ifndef ICG_C_H
+#define ICG_C_H
 #include <map>
 #include "lexer.h"
 
-class ICG{
+class ICG_C{
     public:
-        ICG(Lexer* lex, std::ofstream& s): stream(s) {
+        ICG_C(Lexer* lex, std::ofstream& s): stream(s) {
             lexer = lex;
 
             stream << "extern int putchar(int);"<<std::endl;

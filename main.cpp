@@ -12,7 +12,7 @@ author:
 #include <fstream>
 #include "lexer.h"
 #include "language.h"
-#include "ICG.h"
+#include "ICG_C.h"
 
 
 using namespace std;
@@ -40,8 +40,8 @@ int main(int argc, char* argv[]){
     Token token;
     lexer->get(token);
     ofstream comp_file( comp_filename );
-    ICG* icg;
-    icg = new ICG(lexer, comp_file);
+    ICG_C* icg;
+    icg = new ICG_C(lexer, comp_file);
     file.close();
     comp_file.close();
 
