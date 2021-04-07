@@ -37,8 +37,6 @@ int main(int argc, char* argv[]){
     }
     Lexer* lexer;
     lexer = new Lexer(file);
-    Token token;
-    lexer->get(token);
     ofstream comp_file( comp_filename );
     ICG_C* icg;
     icg = new ICG_C(lexer, comp_file);
