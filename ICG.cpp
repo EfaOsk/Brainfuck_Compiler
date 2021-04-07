@@ -7,6 +7,13 @@ using namespace std;
 
 ICG::ICG(Lexer* lex){
     lexer = lex;
+
+    cout << "extern int putchar(int);"<<endl;
+    cout << "extern char getchar();"<<endl;
+    cout << "char array[30000];"<<endl;
+    cout << "char *ptr = &array[0];"<<endl;
+    cout << "int main () {"<<endl;
+
     Token token;
     lexer->get(token);
     while (token!= Token::t_eoi)
@@ -40,5 +47,6 @@ ICG::ICG(Lexer* lex){
         }
         lexer->get(token);
     }
+    cout<< "}"<<endl;
     
 }

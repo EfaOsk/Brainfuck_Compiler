@@ -9,28 +9,28 @@ class ICG{
     private:
         Lexer* lexer;
         void handel_plus(){
-            std::cout<<"plus"<<std::endl;
+            std::cout<<"++*ptr;"<<std::endl;
         };
         void handel_minus(){
-            std::cout<<"minus"<<std::endl;
+            std::cout<<"--*ptr;"<<std::endl;
         };
         void handel_shift_left(){
-            std::cout<<"shift left"<<std::endl;
+            std::cout<<"--ptr;\n"<<std::endl;
         };
         void handel_shift_right(){
-            std::cout<<"shift right"<<std::endl;
+            std::cout<<"++ptr;"<<std::endl;
         };
         void handel_output(){
-            std::cout<<"output"<<std::endl;
+            std::cout<<"putchar(*ptr);"<<std::endl;
         };
         void handel_input(){
-            std::cout<<"input"<<std::endl;
+            std::cout<<"*ptr=getchar();"<<std::endl;
         };
         void handel_while(){
-            std::cout<<"begin while loop"<<std::endl;
+            std::cout<<"while (*ptr) {"<<std::endl;
         };
         void handel_end_while(){
-            std::cout<<"end while loop"<<std::endl;
+            std::cout<<"}"<<std::endl;
         };
         void handel_eoi(){
             std::cout<<"end of file"<<std::endl;
