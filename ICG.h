@@ -5,35 +5,79 @@
 
 class ICG{
     public:
-        ICG(Lexer* lex);
+        ICG(Lexer* lex, std::ofstream& s): stream(s) {
+            lexer = lex;
+
+            stream << "extern int putchar(int);"<<std::endl;
+            stream << "extern char getchar();"<<std::endl;
+            stream << "char array[30000];"<<std::endl;
+            stream << "char *ptr = &array[0];"<<std::endl;
+            stream << "int main () {"<<std::endl;
+
+            Token token;
+            lexer->get(token);
+            while (token!= Token::t_eoi)
+            {
+                switch (token)
+                {
+                case Token::t_shift_left:
+                    handel_shift_left();
+                    break;
+                case Token::t_shift_right:
+                    handel_shift_right();
+                    break;
+                case Token::t_plus:
+                    handel_plus();
+                    break;
+                case Token::t_minus:
+                    handel_minus();
+                    break;
+                case Token::t_input:
+                    handel_input();
+                    break;
+                case Token::t_output:
+                    handel_output();
+                    break;
+                case Token::t_while:
+                    handel_while();
+                    break;
+                case Token::t_end_while:
+                    handel_end_while();
+                    break;
+                }
+                lexer->get(token);
+            }
+            stream<< "}"<<std::endl;
+        };
     private:
         Lexer* lexer;
+        std::ofstream& stream;
         void handel_plus(){
-            std::cout<<"++*ptr;"<<std::endl;
+            stream<<"++*ptr;"<<std::endl;
         };
         void handel_minus(){
-            std::cout<<"--*ptr;"<<std::endl;
+            stream<<"--*ptr;"<<std::endl;
         };
         void handel_shift_left(){
-            std::cout<<"--ptr;\n"<<std::endl;
+            stream<<"--ptr;\n"<<std::endl;
         };
         void handel_shift_right(){
-            std::cout<<"++ptr;"<<std::endl;
+            stream<<"++ptr;"<<std::endl;
         };
         void handel_output(){
-            std::cout<<"putchar(*ptr);"<<std::endl;
+            stream<<"putchar(*ptr);"<<std::endl;
         };
         void handel_input(){
-            std::cout<<"*ptr=getchar();"<<std::endl;
+            stream<<"*ptr=getchar();"<<std::endl;
         };
         void handel_while(){
-            std::cout<<"while (*ptr) {"<<std::endl;
+            stream<<"while (*ptr) {"<<std::endl;
         };
         void handel_end_while(){
-            std::cout<<"}"<<std::endl;
+            stream<<"}"<<std::endl;
         };
         void handel_eoi(){
-            std::cout<<"end of file"<<std::endl;
+            stream<<"end of file"<<std::endl;
         };
 
 };
