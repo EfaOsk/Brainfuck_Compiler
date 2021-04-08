@@ -7,7 +7,7 @@ class ICG_ASM{
     public:
         ICG_ASM(Lexer* lex, std::ofstream& s): stream(s) {
             lexer = lex;
-
+            stream<<"add header";
             Token token;
             lexer->get(token);
             while (token!= Token::t_eoi)
@@ -41,21 +41,22 @@ class ICG_ASM{
                 }
                 lexer->get(token);
             }
+            stream<<"add ender";
         };
     private:
         Lexer* lexer;
         std::ofstream& stream;
         void handel_plus(){
-            stream<<"plus"<<std::endl;
+            stream<<"add byte ptr [%%r8], 1"<<std::endl;
         };
         void handel_minus(){
-            stream<<"minus"<<std::endl;
+            stream<<"sub byte ptr [%%r8], 1"<<std::endl;
         };
         void handel_shift_left(){
-            stream<<"shift left"<<std::endl;
+            stream<<"sub r8, 1"<<std::endl;
         };
         void handel_shift_right(){
-            stream<<"shift right"<<std::endl;
+            stream<<"add r8, 1"<<std::endl;
         };
         void handel_output(){
             stream<<"output"<<std::endl;
