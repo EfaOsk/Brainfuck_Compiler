@@ -1,5 +1,11 @@
 # Brainf**k Compiler
 ## Run
+`make`
+To run interpeter
+`./interpeter <file name>`
+To run compiler
+`./compiler <file to compile> <compiled file>`
+
 ## Author 
 - **Eva Ósk Gunnarsdóttir** (evag18@ru.is)
 
